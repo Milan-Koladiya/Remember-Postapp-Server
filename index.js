@@ -12,12 +12,12 @@ app.use(cors());
 app.use(user);
 app.use(post);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("front-end/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "front-end", "build", "index.html"));
-  });
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("front-end/build"));
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "front-end", "build", "index.html"));
+//   });
+// }
 
 const PORT = process.env.PORT || 8080;
 const server = app.listen(PORT, () => {
