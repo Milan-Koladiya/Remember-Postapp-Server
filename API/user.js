@@ -32,9 +32,8 @@ router.post("/signup", upload.single("file"), async (req, res) => {
     }
     console.log(user);
     const userFound = await User.findOne({ Username: user.Username });
-    console.log("xxxxxx", userFound);
+
     if (userFound) {
-      console.log(user);
       return res.status(204).send({ errmessage: "Please fill all the field" });
     }
     await bcrypt.hash(user.Password, 8, (err, hash) => {
